@@ -40,6 +40,8 @@ unvisited[start] = 0
 
 solution = unvisited.copy()
 
+previous = dict(zip(nodes,['']*size))
+
 # max iterations is one per node
 for iteration in range(size):
 
@@ -66,7 +68,22 @@ for iteration in range(size):
         if proposed_distance < solution[next]:
             solution[next] = proposed_distance
             unvisited[next] = proposed_distance
+            previous[next] = current
 
     del unvisited[current]
 
-print(solution)
+path = []
+
+# by using range iteration it limited iteration to number of visited nodes
+# current will start with end of iteration - should be end node
+for create_path in range(iteration):
+    path.append(current)
+    if current == start:
+        break
+    current = previous[current]
+    if current == '':
+        print('No Path Exists')
+        exit()
+
+path.reverse()
+print(path)
