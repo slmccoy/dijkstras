@@ -23,11 +23,11 @@ I have assumed going forward that the file fed in will be other this form as out
 ## Required imports
 I have tried to keep this as minimal as possible, but I will be using;
 
-**numpy** for numerical calculations and to aid in importing the data;
+`numpy` for numerical calculations and to aid in importing the data;
 
-**sys** to satisfy the requirement of this being run form the command line with variables;
+`sys` to satisfy the requirement of this being run form the command line with variables;
 
-**time** to check runtime and ensure it is under 1 second (although I will aim for much lower).
+`time` to check runtime and ensure it is under 1 second (although I will aim for much lower).
 
 ## Import of data
 First I created a virtual environment to work in and ran `pip install numpy`.
