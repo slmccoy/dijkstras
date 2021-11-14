@@ -30,7 +30,7 @@ I have tried to keep this as minimal as possible, but I will be using;
 **time** to check runtime and ensure it is under 1 second (although I will aim for much lower).
 
 ## Import of data
-First I created a virtual environment to work in and ran **pip install numpy**.
+First I created a virtual environment to work in and ran `pip install numpy`.
 My first code took in data and created and printed a nested dictionary:
 `{'G': {'F': '8'}, 'E': {'G': '16', 'C': '2'}, 'F': {}, 'B': {'E': '9', 'C': '12'}, 'A': {'B': '6', 'D': '10', 'E': '18'}, 'D': {'E': '14', 'G': '22'}, 'C': {'G': '13', 'F': '27'}}`
 
