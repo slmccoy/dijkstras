@@ -1,7 +1,7 @@
 import numpy as np
 import sys
 
-def extract_data(file, start,end):
+def extract_data(file):
     '''
     Extract data from .dat file and create dictionary
     '''
@@ -96,7 +96,7 @@ def dijkstras(network, total_weight, start, end):
 if __name__ == '__main__':
 
     name, file, start, end = sys.argv
-    network, total_weight = extract_data(file, start, end)
+    network, total_weight = extract_data(file)
     path = dijkstras(network, total_weight ,start,end)
     for node in path:
         print(node)
