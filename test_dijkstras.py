@@ -4,13 +4,13 @@ from dijkstras import extract_data, dijkstras
 
 class TestDijkstras(unittest.TestCase):
 
-    file = 'exmouth-links.dat'
+    file_path = 'exmouth-links.dat'
     network = {}
     total_weight = 0
 
     def test_extract_data(self):
         ''' Check data is extracted from file into the correct type'''
-        network, total_weight = extract_data(self.file)
+        network, total_weight = extract_data(self.file_path)
 
         # check if main outputs are of the correct form
         self.assertIsInstance(network, dict)
@@ -51,7 +51,7 @@ class TestDijkstras(unittest.TestCase):
 
 class SpeedTest(unittest.TestCase):
 
-    file = 'exmouth-links.dat'
+    file_path = 'exmouth-links.dat'
     network = {}
     nodes = []
     total_weight = 0
@@ -60,7 +60,7 @@ class SpeedTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         '''Create nodes list for class'''
-        network, total_weight = extract_data(cls.file)
+        network, total_weight = extract_data(cls.file_path)
         cls.nodes = network.keys()
 
 
@@ -68,16 +68,17 @@ class SpeedTest(unittest.TestCase):
         '''Return run time for extracting data, running algorithm and printing'''
         start_time = time.time()
 
-        network, total_weight = extract_data(self.file)
+        network, total_weight = extract_data(self.file_path)
         path = dijkstras(network, total_weight ,start,end)
-        for node in path:
-            print(node)
+        # for node in path:
+            # print(node)
 
         run_time = time.time() - start_time
         return run_time
 
 
     def test_itteration(self):
+        '''Iterate through all node combinations'''
         nodes = self.nodes
         for start in nodes:
             for end in nodes:

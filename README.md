@@ -22,8 +22,11 @@ I have assumed going forward that the file fed in will be other this form as out
 
 # Required imports
 I have tried to keep this as minimal as possible, but I will be using;
+
 **numpy** for numerical calculations and to aid in importing the data;
+
 **sys** to satisfy the requirement of this being run form the command line with variables;
+
 **time** to check runtime and ensure it is under 1 second (although I will aim for much lower).
 
 # Import of data
@@ -54,4 +57,4 @@ Much like when I checked the speed, I will iterate through all options for start
 # Speed Testing
 While writing up speed check I ran into the problem that the setUp and tearDown methods would have been useful to start and stop my timer, however these do not run for subTests. The use of a subTest was useful to allow iteration and record how many failures took place.
 On my computer I found I could dropped allowed_time to around 0.02 before getting any failures (as predicted by my initial speed checks).
-**WARNING:** This takes around 15s to fully run in full due to amount of iteration and printing.
+**WARNING:** This takes around 15s to fully run due to amount of iteration and printing. For this reason I have #'s out line 73 and 74 which contain the print lines just to help runtime of the test file, although for a fully accurate account of runtime these would need to be considered.

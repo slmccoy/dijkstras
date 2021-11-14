@@ -1,13 +1,14 @@
 import time
 from dijkstras import extract_data, dijkstras
 
-file = 'exmouth-links.dat'
+file_path = 'exmouth-links.dat'
 
 '''
 Check run time for 'extract_data'
 '''
+
 start_time = time.time()
-network, total_weight = extract_data(file)
+network, total_weight = extract_data(file_path)
 import_time = time.time() - start_time
 
 print(f'Time for data extract file: {import_time} seconds')

@@ -1,18 +1,28 @@
 import numpy as np
 import sys
 
-def extract_data(file):
+def extract_data(file_path):
     '''
     Extract data from .dat file and create dictionary
+
+        Parameters:
+            file_path (str): data source file name
+
+        Returns:
+            network (dict): nested dictionary
+            total_weight (int): sum of all weights
     '''
 
-    file_data = np.genfromtxt(file,dtype = [
-        ('start','<U10'),
-        ('end','<U10'),
-        ('weight','<i8')
-    ])
+    file_data = np.genfromtxt(
+        file_path,
+        dtype = [
+            ('start','<U10'),
+            ('end','<U10'),
+            ('weight','<i8')
+            ]
+        )
 
-    #Split file data into lists (rather than tuples) inside a list - for indexing
+    #Split data into lists (rather than tuples) inside a list - for indexing
     data = np.array([list(path) for path in file_data])
 
     total_weight = sum([int(weight) for weight in data[:,2]])
@@ -35,6 +45,18 @@ def extract_data(file):
     return network, total_weight
 
 def dijkstras(network, total_weight, start, end):
+    '''
+    Complete Dijkstras algorith and return shortest path
+
+        Parameters:
+            network (dict): Nested dictionary
+            total_weight (int): sum of weights in network
+            start (str): starting node name
+            end (str): ending node name
+
+        Returns:
+            path (list): list of nodes in shortest path
+    '''
 
     # recreated here to simplify function requirement
     nodes = network.keys()
@@ -95,8 +117,8 @@ def dijkstras(network, total_weight, start, end):
 
 if __name__ == '__main__':
 
-    name, file, start, end = sys.argv
-    network, total_weight = extract_data(file)
+    name, file_path, start, end = sys.argv
+    network, total_weight = extract_data(file_path)
     path = dijkstras(network, total_weight ,start,end)
     for node in path:
         print(node)
